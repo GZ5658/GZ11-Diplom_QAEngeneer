@@ -10,10 +10,7 @@ def create_new_orders(body):
                          headers=data.headers) # заголовки
 
 order_response = create_new_orders(data.create_orders);
-#print(response.status_code)
-#print(response.json())
 track_number = order_response.json()["track"] # Сохранение номера заказа
-#print(track_number)
 
 # Получение данных о заказе по его номеру
 def new_orders_info(track_number):
@@ -26,10 +23,6 @@ def new_orders_info(track_number):
     assert order_response.json()["code"] == 200
 order_code = order_response.status_code
 info_response = new_orders_info(track_number)
-#print(response.status_code)
-#print(response.headers)
-#print(response.json())
-#print(response.text)
 
 # Тест 1. Создание заказа (test_create_order)
 def test_create_new_order():
